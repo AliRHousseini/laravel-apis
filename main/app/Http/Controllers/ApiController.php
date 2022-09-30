@@ -31,6 +31,33 @@ class ApiController extends Controller
         ]);
     }
 
+    
+    function placeValue(Request $request){
+        $word = $request->word;
+        $rem = 0;
+        $tenth =1;
+        $i = 0;
+        $arr=[];
+        // walk through the integer and take the numbers value by value
+        // each time multiply the reminder by 1, 10, 100 etc... untill the end
+        // and add them in array respectivley.
+        while($word >= 1){
+            $rem = $word % 10;
+            $word /= 10;
+            $rem *= $tenth;
+            $tenth *= 10;
+            $arr[$i] = $rem;
+            $i++;
+        }
+        //reverse the array to put start the number from the end
+        // like [200,30,5] rather than [5,30,200]
+        $sortedarr = rsort($arr);
+        return response()->json([
+            "status" => "Success",
+            "word" => $arr
+        ]);
+    }
+
     function getUsers(){
         return "hiasdhashd";
     }
