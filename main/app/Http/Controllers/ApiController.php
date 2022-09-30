@@ -62,5 +62,22 @@ class ApiController extends Controller
         return "hiasdhashd";
     }
 
+    function binaryTranslate(Request $request){
+        $word = $request->word;
+        $reg = "/[0-9]+/"; // regular expresion to get only numbers
+        // a function that will take the word string and replace each match with the
+        // binary form of it
+        $word_binary = preg_replace_callback($reg,
+        function($matches){
+            foreach ($matches as $match){
+            return decbin($match);}
+        },
+        $word);
+        // $word_binary = preg_split($reg,$word);
 
+        return response()->json([
+            "status" => "Success",
+            "word" => $word_binary
+        ]);
+    }
 }
