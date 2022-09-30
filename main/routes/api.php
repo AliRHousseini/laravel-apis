@@ -15,8 +15,9 @@ use App\Http\Controllers\ApiController;
 |
 */
 
-Route::post("/add_user",[TestController::class, 'addUser']);
+Route::post("/sort_string",[TestController::class, 'sortString']);
 
+Route::post("/place_value",[TestController::class, 'placeValue']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
