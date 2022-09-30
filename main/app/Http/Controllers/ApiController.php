@@ -7,18 +7,17 @@ use Illuminate\Http\Request;
 class ApiController extends Controller
 {
     //
-    function getUsers(){
-        dd("asdasdasd");
-        return "HI from here";
-    }
 
-    function addUser(Request $request){
-        $name = $request->name;
-        $age = $request ->age;
+    function sortString(Request $request){
+        $word = $request->word;
+
+        $word_array = str_split($word);
+        sort($word_array);
+        $word = implode($word_array);
 
         return response()->json([
             "status" => "Success",
-            "message" => $age
+            "word" => $word
         ]);
     }
 
