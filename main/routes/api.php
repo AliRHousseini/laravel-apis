@@ -21,6 +21,7 @@ Route::post("/place_value",[ApiController::class, 'placeValue']);
 
 Route::post("/binary_transale",[ApiController::class, 'binaryTranslate']);
 
+Route::post("/prefix_calculate",[ApiController::class, 'prefixCalculate']);
 //just for test on first place
 Route::get("/users",[ApiController::class,'getUsers']);
 
