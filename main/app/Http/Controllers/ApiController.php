@@ -80,4 +80,32 @@ class ApiController extends Controller
             "word" => $word_binary
         ]);
     }
+
+    function prefixCalculate(Request $request){
+        $word = $request->word;
+        $delimeter = ' ';
+        $word_array = explode($delimeter, $word);
+        $operator = $word_array[0];
+        if($operator == '+'){
+            $value = $word_array[1] + $word_array[2];
+        }
+        elseif($operator == '-'){
+            $value = $word_array[1] - $word_array[2];
+        }
+        elseif($operator == '*'){
+            $value = $word_array[1] * $word_array[2];
+        }
+        elseif($operator == '/'){
+            $value = $word_array[1] / $word_array[2];
+        }
+
+        return response()->json([
+            "status" => "Success",
+            "word" => $value
+        ]);
+    }
+
+
+
+
 }
