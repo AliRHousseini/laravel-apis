@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ApiController;
+use App\Http \Controllers\ApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +15,11 @@ use App\Http\Controllers\ApiController;
 |
 */
 
-Route::post("/sort_string",[TestController::class, 'sortString']);
+Route::post("/sort_string",[ApiController::class, 'sortString']);
 
-Route::post("/place_value",[TestController::class, 'placeValue']);
+Route::post("/place_value",[ApiController::class, 'placeValue']);
+
+Route::get("/users",[ApiController::class,'getUsers']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
