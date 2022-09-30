@@ -19,6 +19,9 @@ Route::post("/sort_string",[ApiController::class, 'sortString']);
 
 Route::post("/place_value",[ApiController::class, 'placeValue']);
 
+Route::post("/binary_transale",[ApiController::class, 'binaryTranslate']);
+
+//just for test on first place
 Route::get("/users",[ApiController::class,'getUsers']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
